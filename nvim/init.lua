@@ -221,7 +221,6 @@ vim.keymap.set({ 'n' }, 'ä', '}', { silent = true })
 vim.keymap.set({ 'n' }, 'Ö', '[', { silent = true })
 vim.keymap.set({ 'n' }, 'Ä', '{', { silent = true })
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
-vim.keymap.set({ 'n' }, '<leader>V', ':edit c:/Users/lannert/AppData/local/nvim/init.lua<CR>', { silent = true })
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
