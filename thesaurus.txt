@@ -1,0 +1,5 @@
+-- THESAURUS
+Affe	Monkey, Ape, Primat
+
+
+
