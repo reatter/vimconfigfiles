@@ -5,23 +5,27 @@ set autochdir
 set clipboard+=unnamedplus
 set hls
 set ignorecase smartcase
-set number
 set path+='c:/Users/lannert/','c:/Users/lannert/python'
-set relativenumber
-set tsr+=C:\\Users\\lannert\\vim\\openthesaurus.txt
-set scrolloff=5
+set number relativenumber " do both!
+set tsr+=C:/Users/lannert/vim/openthesaurus.txt
+set scrolloff=10
 set noswapfile " backups in VCS
 
 " keymaps
 
 """ Remap for dealing with word wrap
-nnoremap J gjzz
-nnoremap K gkzz
 
 
 " leader mapping
-nnoremap <leader>v :tabedit c:/Users/lannert/.vimrc<CR>
-nnoremap <leader>V :tabedit c:/Users/lannert/AppData/local/nvim/init.lua<CR>
+nnoremap <leader>v :tabedit $HOME/.vimrc<CR>
+nnoremap <leader>V :tabedit $HOME/AppData/local/nvim/init.lua<CR>
+
+nnoremap <leader>h :noh<CR>
+nnoremap <leader>s ]s
+nnoremap <leader>S [s
+
+inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+
 
 " abbreviations
 inoreabbrev Maximilian So'n
@@ -39,6 +43,12 @@ inoreabbrev Onject Object
 cnoreabbrev Wq wq
 cnoreabbrev wQ wq
 cnoreabbrev WQ wq
+cnoreabbrev Q! q1
 
-
-
+""" spellchecking automatically in txt
+set spelllang=de
+augroup
+	autocmd!
+	autocmd FileType text setlocal spell
+	autocmd BufRead,BufNewFile *.txt setlocal spell
+augroup END
