@@ -10,6 +10,7 @@ set number relativenumber " do both!
 set tsr+=C:/Users/lannert/vim/openthesaurus.txt
 set scrolloff=10
 set noswapfile " backups in VCS
+set wildmode=longest:full,full
 
 " keymaps
 
