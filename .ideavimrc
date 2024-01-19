@@ -15,8 +15,8 @@ nnoremap <leader><leader> :noh<CR>
 vnoremap <leader><leader> :noh<CR>
 
 " edit ideavimrc
-nnoremap <leader>v :e c:/users/lannert/.vimrc<CR>
-nnoremap <leader>V :e c:/users/lannert/.ideavimrc<CR>
+nnoremap <leader>v :e $HOME/.vimrc<CR>
+nnoremap <leader>V :e $HOME/.ideavimrc<CR>
 
 nnoremap <leader>o o<Esc>
 nnoremap <leader>O O<Esc>
@@ -65,8 +65,6 @@ nnoremap H :action PreviousTab<CR>
 nnoremap L :action NextTab<CR>
 
 " -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
-"" Map \r to the Reformat Code action
-map <leader>R <Action>(ReformatCode)
 
 "" Map <leader>d to start debug
 map <leader>D <Action>(Debug)
@@ -76,8 +74,6 @@ map <leader>B <Action>(ToggleLineBreakpoint)
 
 "" Map \F to recent files
 map <leader>F <Action>(RecentFiles)
-
-Ich teste Mal
 
 "" Map \r to rename
 map <leader>r <Action>(RenameElement)

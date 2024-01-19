@@ -5,7 +5,7 @@ set autochdir
 set clipboard+=unnamedplus
 set hls
 set ignorecase smartcase
-set path+='$HOME','c:/Users/lannert/python'
+set path+='$HOME','$HOME/python'
 set number relativenumber " do both!
 "THESAURUS
 "Add personal synonym files
