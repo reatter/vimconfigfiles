@@ -32,7 +32,7 @@ nmap <leader>b :action Back<CR>
 nmap <leader>f :action Forward<CR>
 
 " highlighting off
-nmap <leader>h :noh<CR>
+nmap <leader>h :silent noh<CR>
 " ignore case during search
 set ignorecase
 
