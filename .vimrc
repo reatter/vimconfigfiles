@@ -19,10 +19,24 @@ set visualbell
 
 " keymaps
 
+" esc
+inoremap kj <Esc>`.
+
+" scrolling set cursor to middle
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+nnoremap <C-f> <C-f>zz
+nnoremap <C-b> <C-b>zz
+
+
 """ Remap for dealing with word wrap
+nnoremap j gj
+nnoremap k gk
 
+nnoremap gj j 
+nnoremap gk k
 
-" leader maßsing
+" leader mapping
 nnoremap <leader>v :tabedit $HOME/.vimrc<CR>
 nnoremap <leader>V :tabedit $HOME/AppData/local/nvim/init.lua<CR>
 
