@@ -65,5 +65,5 @@ augroup
 	autocmd!
 	autocmd FileType text setlocal spell
 	autocmd BufRead,BufNewFile *.txt,*.md setlocal spell
-	set spelllang=de
+	set spelllang=de,en_US
 augroup END
