@@ -151,6 +151,10 @@ vim.o.timeout = true
 vim.o.timeoutlen = 300
 vim.o.completeopt = 'menuone,noselect'
 vim.o.termguicolors = true
+vim.opt.inccomand = "split"
+vim.opt.virtualedit = "block"
+vim.opt.scrolloff = 999
+
 
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`

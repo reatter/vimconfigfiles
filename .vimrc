@@ -12,7 +12,7 @@ set number relativenumber " do both!
 if !empty(glob("~/vim"))
     set thesaurus+=$HOME/vim/openthesaurus.txt
 endif
-set scrolloff=5
+set scrolloff=999
 set noswapfile " backups in VCS
 set wildmode=longest:full,full
 set visualbell
@@ -21,16 +21,11 @@ set visualbell
 
 inoremap kj <Esc>`.
 
-" scrolling set cursor to middle
-nnoremap <C-d> <C-d>zz
-nnoremap <C-u> <C-u>zz
-nnoremap <C-f> <C-f>zz
-nnoremap <C-b> <C-b>zz
-
-
 """ Remap for dealing with word wrap
-nnoremap j gjzz
-nnoremap k gkzz
+nnoremap j gj
+nnoremap k gk
+nnoremap gj j 
+nnoremap gk k 
 
 " leader mapping
 nnoremap <leader>v :tabedit $HOME/.vimrc<CR>
