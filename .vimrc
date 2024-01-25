@@ -1,11 +1,9 @@
 " vimrc for generic bindings (non-nvim non-IntelliJ)
 
 " settings
-set autochdir
 set clipboard+=unnamedplus
 set hls
 set ignorecase smartcase
-set path+='$HOME','$HOME/python'
 set number relativenumber " do both!
 "THESAURUS
 "Add personal synonym files
@@ -20,12 +18,6 @@ set visualbell
 " keymaps
 
 inoremap kj <Esc>`.
-
-""" Remap for dealing with word wrap
-nnoremap j gj
-nnoremap k gk
-nnoremap gj j 
-nnoremap gk k 
 
 " leader mapping
 nnoremap <leader>v :tabedit $HOME/.vimrc<CR>
@@ -60,5 +52,5 @@ augroup
 	autocmd!
 	autocmd FileType text setlocal spell
 	autocmd BufRead,BufNewFile *.txt,*.md setlocal spell
-	set spelllang=de,en_US
+	set spelllang=de,en
 augroup END
