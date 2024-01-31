@@ -197,6 +197,17 @@ vim.o.completeopt = 'menuone,noselect'
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
 
+-- shows partial off-screen	results in a preview window.
+vim.opt.inccommand = "split"
+
+-- Virtual editing means that the cursor can be positioned where there is	no actual character.  
+-- This can be halfway into a tab or beyond the end	of the line.  Useful for selecting a 
+-- rectangle in Visual mode and	editing a table.
+vim.opt.virtualedit = "block"
+
+--centering always around the current line
+vim.opt.scrolloff = 999
+
 -- [[ Basic Keymaps ]]
 
 -- Keymaps for better default experience
