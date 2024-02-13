@@ -1,11 +1,12 @@
--- Set <space> as the leader key
-vim.g.maplocalleader = ' '
-vim.g.mapleader = ' '
-vim.g.transparent_enabled = 1
+-- Set <space> as the leader key 
+vim.g.maplocalleader = ' ' 
+vim.g.mapleader = ' ' 
+vim.g.transparent_enabled = 1 
 
--- require keymap and options
-require('keymaps')
-require('options')
+require('options') -- in /lua/options.lua
+require('keymaps') -- in /lua/keymaps.lua
+require('lsp')     -- in /lua/lsp.lua
+require('packagemanager')    -- in /lua/packagemanager.lua
 
 -- -- chdir to pwd when in argument
 local group_cdpwd = vim.api.nvim_create_augroup("group_cdpwd", { clear = true })
@@ -17,116 +18,6 @@ vim.api.nvim_create_autocmd("VimEnter", {
   end,
 })
 
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
-end
-
-vim.opt.rtp:prepend(lazypath)
-  -- disable netrw at the very start of your init.lua (strongly advised)
-  vim.g.loaded_netrw = 1
-  vim.g.loaded_netrwPlugin = 1
-  vim.opt.termguicolors = true
-  
-require('lazy').setup({
-  'tpope/vim-surround',
-  'tpope/vim-fugitive',
-  'tpope/vim-rhubarb',
-  'tpope/vim-sleuth',
-  'stevearc/oil.nvim',
-  'xiyaowong/transparent.nvim',
-  { 
-    'neovim/nvim-lspconfig',
-    dependencies = {
-      { 'williamboman/mason.nvim', config = true },
-      'williamboman/mason-lspconfig.nvim',
-      'folke/neodev.nvim',
-    },
-  },
-  { 
-    'hrsh7th/nvim-cmp',
-    dependencies = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
-  },
-  { 'folke/which-key.nvim', 
-    opts = {
-      ["<leader>f"] = { name = "+file" },
-  } },
-  { 
-    'lewis6991/gitsigns.nvim',
-    opts = {
-      signs = {
-        add = { text = '+' },
-        change = { text = '~' },
-        delete = { text = '_' },
-        topdelete = { text = '‾' },
-        changedelete = { text = '~' },
-      },
-    },
-  },
-  { 
-    'navarasu/onedark.nvim',
-    config = function()
-      vim.cmd.colorscheme 'onedark'
-    end,
-  },
-  {
-    "folke/tokyonight.nvim",
-    lazy = false,
-    priority = 1001,
-    opts = {},
-  },
-  { 
-    'nvim-lualine/lualine.nvim',
-    opts = {
-      options = {
-        icons_enabled = false,
-        theme = 'onedark',
-        component_separators = '|',
-        section_separators = '',
-      },
-    },
-  },
-  -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
-  { 'nvim-telescope/telescope.nvim', version = '*', dependencies = { 'nvim-lua/plenary.nvim' } },
-  -- Fuzzy Finder Algorithm which requires local dependencies to be built.
-  -- Only load if `make` is available. Make sure you have the system
-  -- requirements installed.
-  {
-    'nvim-telescope/telescope-fzf-native.nvim',
-  {
-    'nvim-telescope/telescope-fzf-native.nvim',
-    build = 'make',
-    cond = function()
-      return vim.fn.executable 'make' == 1
-    end,
-  },
-  {
-    "nvim-tree/nvim-tree.lua",
-    version = "*",
-    dependencies = {
-      "nvim-tree/nvim-web-devicons",
-    },
-    config = function()
-      require("nvim-tree").setup {}
-    end,
-  },
-  { 
-    'nvim-treesitter/nvim-treesitter',
-    dependencies = {
-      'nvim-treesitter/nvim-treesitter-textobjects',
-    },
-    build = ":TSUpdate",
-  },
-}})
 
 
 
@@ -143,6 +34,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- [[ Configure Telescope ]]
 require('telescope').setup {
   defaults = {
+    initial_mode = "normal",
     preview = {
       filesize_limit = 0.1, --MBs
       timeout = 1000, --ms
@@ -156,6 +48,9 @@ require('telescope').setup {
       ".vscode",
     },
     mappings = {
+      n = {
+        ["<C-c>"] = require('telescope.actions').close,
+      },
       i = {
         ['<C-u>'] = true,
         ['<C-d>'] = true,
@@ -209,12 +104,3 @@ local on_attach = function(_, bufnr)
   end, { desc = 'Format current buffer with LSP' })
 end
 
--- Treesitter LSP servers
-local servers = {
-  lua_ls = {
-    Lua = {
-      workspace = { checkThirdParty = false },
-      telemetry = { enable = false },
-    },
-  },
-}
