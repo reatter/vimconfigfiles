@@ -3,6 +3,10 @@ vim.g.maplocalleader = ' '
 vim.g.mapleader = ' '
 vim.g.transparent_enabled = 1
 
+-- require keymap and options
+require('keymaps')
+require('options')
+
 -- -- chdir to pwd when in argument
 local group_cdpwd = vim.api.nvim_create_augroup("group_cdpwd", { clear = true })
 vim.api.nvim_create_autocmd("VimEnter", {
@@ -13,7 +17,6 @@ vim.api.nvim_create_autocmd("VimEnter", {
   end,
 })
 
-vim.cmd([[source C:/Users/lannert/.vimrc]])
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
 if not vim.loop.fs_stat(lazypath) then
@@ -125,52 +128,7 @@ require('lazy').setup({
   },
 }})
 
--- options
-vim.o.hlsearch = true
-vim.wo.number = true
-vim.o.mouse = 'a'
-vim.o.clipboard = 'unnamedplus' 
-vim.o.breakindent = true
-vim.o.undofile = true
-vim.o.ignorecase = true
-vim.o.smartcase = true
-vim.wo.signcolumn = 'yes'
-vim.o.updatetime = 250
-vim.o.timeout = true
-vim.o.timeoutlen = 300
-vim.o.completeopt = 'menuone,noselect'
-vim.o.termguicolors = true
-vim.opt.inccommand = "split"
 
--- Virtual editing means that the cursor can be positioned where there is	no actual character.  
--- This can be halfway into a tab or beyond the end	of the line.  Useful for selecting a 
--- rectangle in Visual mode and	editing a table.
-vim.opt.virtualedit = "block"
---centering always around the current line
-vim.opt.scrolloff = 999
-
--- Keymaps
-vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
-vim.keymap.set({ 'n' }, '<A-j>', '<Esc>V:m+1<CR>', { silent = true })
-vim.keymap.set({ 'n' }, '<A-k>', '<Esc>V:m-2<CR>', { silent = true })
-vim.keymap.set({ 'v' }, '<A-j>', ':m \'>+1<CR>gv=gv', { silent = true })
-vim.keymap.set({ 'v' }, '<A-k>', ':m \'<-2<CR>gv=gv', { silent = true })
-
--- spell checking
-vim.keymap.set({ "n" }, "<leader>s", "]s", { silent = true }, {desc = "Nächster Rechtschreibfehler"})
-vim.keymap.set({ "n" }, "<leader>S", "[s", { silent = true }, {desc = "Letzter Rechtschreibfehler"})
-vim.keymap.set({ "n" }, "<leader>g", "z=1<CR>`", { silent = true }, {desc = "Korrigieren"})
-
-vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
-vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
-vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
-vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
-vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
--- Diagnostic keymaps
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 
 -- [[ Highlight on yank ]]
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
@@ -185,7 +143,12 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- [[ Configure Telescope ]]
 require('telescope').setup {
   defaults = {
+    preview = {
+      filesize_limit = 0.1, --MBs
+      timeout = 1000, --ms
+    },
     shorten_path = true, 
+    smart = true,
     file_ignore_patterns = { 
       ".m2",
       ".cache",
@@ -200,6 +163,14 @@ require('telescope').setup {
     },
   },
 }
+
+
+vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
+vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
+vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
+vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
+vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
+
 pcall(require('telescope').load_extension, 'fzf')
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
 vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
