@@ -13,7 +13,6 @@ vim.api.nvim_create_autocmd("VimEnter", {
   end,
 })
 
-vim.cmd([[source C:/Users/lannert/.vimrc]])
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
 if not vim.loop.fs_stat(lazypath) then
@@ -150,6 +149,8 @@ vim.opt.virtualedit = "block"
 vim.opt.scrolloff = 999
 
 -- Keymaps
+vim.keymap.set({ 'n', 'v' }, '<leader>h', ':noh<CR>', { silent = true })
+
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set({ 'n' }, '<A-j>', '<Esc>V:m+1<CR>', { silent = true })
 vim.keymap.set({ 'n' }, '<A-k>', '<Esc>V:m-2<CR>', { silent = true })
@@ -157,9 +158,9 @@ vim.keymap.set({ 'v' }, '<A-j>', ':m \'>+1<CR>gv=gv', { silent = true })
 vim.keymap.set({ 'v' }, '<A-k>', ':m \'<-2<CR>gv=gv', { silent = true })
 
 -- spell checking
-vim.keymap.set({ "n" }, "<leader>s", "]s", { silent = true }, {desc = "Nächster Rechtschreibfehler"})
-vim.keymap.set({ "n" }, "<leader>S", "[s", { silent = true }, {desc = "Letzter Rechtschreibfehler"})
-vim.keymap.set({ "n" }, "<leader>g", "z=1<CR>`", { silent = true }, {desc = "Korrigieren"})
+vim.keymap.set({ "n" }, "<leader>s", "]s", { desc = "Nächster Rechtschreibfehler" })
+vim.keymap.set({ "n" }, "<leader>S", "[s", { desc = "Letzter Rechtschreibfehler" })
+vim.keymap.set({ "n" }, "<leader>g", "z=1<CR>`", { desc = "Schnellkorrektur" })
 
 vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
 vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
@@ -185,7 +186,12 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- [[ Configure Telescope ]]
 require('telescope').setup {
   defaults = {
+    preview = {
+      filesize_limit = 0.1, --MBs
+      timeout = 1000, --ms
+    },
     shorten_path = true, 
+    smart = true,
     file_ignore_patterns = { 
       ".m2",
       ".cache",
