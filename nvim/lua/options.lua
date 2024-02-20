@@ -10,6 +10,7 @@ vim.o.smartcase = true
 vim.o.termguicolors = true
 vim.o.timeout = true
 vim.o.timeoutlen = 300
+vim.o.thesaurus = '$HOME/openthesaurus.txt' 
 vim.o.undofile = true
 vim.o.updatetime = 250
 vim.opt.inccommand = "split" -- search buffer when substituting

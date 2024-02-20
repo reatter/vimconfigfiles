@@ -25,6 +25,7 @@ require('lazy').setup({
   'tpope/vim-rhubarb',
   'tpope/vim-sleuth',
   'stevearc/oil.nvim',
+  'Ron89/thesaurus_query.vim',
   'xiyaowong/transparent.nvim',
   { 
     'neovim/nvim-lspconfig',

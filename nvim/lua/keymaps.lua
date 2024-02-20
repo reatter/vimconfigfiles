@@ -1,7 +1,8 @@
 -- convienience
 vim.keymap.set({"i", "v" }, "kj",  "<Esc>`.", { desc = "Escape" }, { silent = true })
 vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
-vim.keymap.set({"n", "v" }, "<leader>h",  ":noh<CR>", { desc = "no highlights" }, { silent = true })
+vim.keymap.set({ "n", "v" }, "<leader>h",  ":noh<CR>", { desc = "no highlights" }, { silent = true })
+vim.keymap.set({ "n" }, "y%",  "ggyG", { desc = "yank current file" }, { silent = true })
 
 -- moving lines
 vim.keymap.set({ "n" }, "<A-j>", "<Esc>V:m+1<CR>", { silent = true })
@@ -10,6 +11,7 @@ vim.keymap.set({ "v" }, "<A-j>", ":m '>+1<CR>gv=gv", { silent = true })
 vim.keymap.set({ "v" }, "<A-k>", ":m '<-2<CR>gv=gv", { silent = true })
 
 -- spell checking
+vim.keymap.set({ "n" }, "<leader>R", ":setlocal spell!<CR>", {desc = "Rechtschreibung togglen"})
 vim.keymap.set({ "n" }, "<leader>s", "]s", {desc = "Nächster Rechtschreibfehler"})
 vim.keymap.set({ "n" }, "<leader>S", "[s", {desc = "Letzter Rechtschreibfehler"})
 vim.keymap.set({ "n" }, "<leader>g", "z=1<CR>`", {desc = "Korrigieren"})
@@ -22,16 +24,17 @@ vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Open float
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 
 
--- set XDG_HOME_CONFIG to %USER%/AppData/Local/ in Windows
-vim.keymap.set({ "n" }, "<leader>I", ":tabedit $XDG_CONFIG_HOME/nvim/init.lua<CR>", { desc = "edit init.lua" })
-vim.keymap.set({ "n" }, "<leader>O", ":tabedit $XDG_CONFIG_HOME/nvim/lua/options.lua<CR>", { desc = "edit options.lua" })
-vim.keymap.set({ "n" }, "<leader>K", ":tabedit $XDG_CONFIG_HOME/nvim/lua/keymaps.lua<CR>", { desc = "edit keymaps.lua" })
-vim.keymap.set({ "n" }, "<leader>P", ":tabedit $XDG_CONFIG_HOME/nvim/lua/packagemanager.lua<CR>", { desc = "edit packagemanager.lua" })
+-- set VIMCONFIG to %USER%/AppData/Local/ in Windows
+vim.keymap.set({ "n" }, "<leader>I", ":tabedit $VIMCONFIG/init.lua<CR>", { desc = "edit init.lua" })
+vim.keymap.set({ "n" }, "<leader>O", ":tabedit $VIMCONFIG/lua/options.lua<CR>", { desc = "edit options.lua" })
+vim.keymap.set({ "n" }, "<leader>K", ":tabedit $VIMCONFIG/lua/keymaps.lua<CR>", { desc = "edit keymaps.lua" })
+vim.keymap.set({ "n" }, "<leader>P", ":tabedit $VIMCONFIG/lua/packagemanager.lua<CR>", { desc = "edit packagemanager.lua" })
 
 
 -- häufige Fehler beim Tippen automatisch korrigieren
 
 vim.cmd("inoreabbrev dsa das")
+vim.cmd("inoreabbrev Dsa Das")
 vim.cmd("inoreabbrev dei die")
 vim.cmd("inoreabbrev dre der")
 vim.cmd("inoreabbrev teh the")
@@ -42,4 +45,4 @@ vim.cmd("inoreabbrev Onject Object")
 vim.cmd("cnoreabbrev Wq wq")
 vim.cmd("cnoreabbrev wQ wq")
 vim.cmd("cnoreabbrev WQ wq")
-vim.cmd("cnoreabbrev Q! q1")
+vim.cmd("cnoreabbrev Q! q!")
