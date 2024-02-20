@@ -24,8 +24,8 @@ require('lazy').setup({
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
   'tpope/vim-sleuth',
+  'tpope/vim-abolish',
   'stevearc/oil.nvim',
-  'Ron89/thesaurus_query.vim',
   'xiyaowong/transparent.nvim',
   { 
     'neovim/nvim-lspconfig',
