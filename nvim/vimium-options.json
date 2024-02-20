@@ -1,0 +1,4 @@
+{
+  "settingsVersion": "2.0.6",
+  "userDefinedLinkHintCss": "div > .vimiumHintMarker {\n/* linkhint boxes */\nbackground: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#CCCCCC),\n  color-stop(100%,#EEEEEE));\nborder: 1px solid #EE2222;\n}\ndiv > .vimiumHintMarker span {\n  color: #EE2222;\n  font-weight: normal;\n  font-size: 14px;\n}\n\ndiv > .vimiumHintMarker > .matchingCharacter {\n}"
+}
