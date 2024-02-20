@@ -1,7 +1,7 @@
 -- convienience
 vim.keymap.set({"i", "v" }, "kj",  "<Esc>`.", { desc = "Escape" }, { silent = true })
 vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
-vim.keymap.set({ "n", "v" }, "<leader>h",  ":noh<CR>", { desc = "no highlights" }, { silent = true })
+vim.keymap.set({ "n", "v" }, "<leader>h",  ":set hls!<CR>", { desc = "toggle highlights" }, { silent = true })
 vim.keymap.set({ "n" }, "y%",  "ggyG", { desc = "yank current file" }, { silent = true })
 
 -- moving lines
@@ -25,13 +25,16 @@ vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagn
 
 
 -- set VIMCONFIG to %USER%/AppData/Local/ in Windows
+-- set VIMCONFIG to $HOME/.config/nvim in Linux
 vim.keymap.set({ "n" }, "<leader>I", ":tabedit $VIMCONFIG/init.lua<CR>", { desc = "edit init.lua" })
 vim.keymap.set({ "n" }, "<leader>O", ":tabedit $VIMCONFIG/lua/options.lua<CR>", { desc = "edit options.lua" })
 vim.keymap.set({ "n" }, "<leader>K", ":tabedit $VIMCONFIG/lua/keymaps.lua<CR>", { desc = "edit keymaps.lua" })
 vim.keymap.set({ "n" }, "<leader>P", ":tabedit $VIMCONFIG/lua/packagemanager.lua<CR>", { desc = "edit packagemanager.lua" })
 
+-- TODO window management and resizing on n <A-hjkl> and arrows for resize
 
 -- häufige Fehler beim Tippen automatisch korrigieren
+-- TODO vim-abolish for Coercing into other cases and :Subvert
 
 vim.cmd("inoreabbrev dsa das")
 vim.cmd("inoreabbrev Dsa Das")
@@ -46,3 +49,5 @@ vim.cmd("cnoreabbrev Wq wq")
 vim.cmd("cnoreabbrev wQ wq")
 vim.cmd("cnoreabbrev WQ wq")
 vim.cmd("cnoreabbrev Q! q!")
+
+-- TODO snippets

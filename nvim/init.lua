@@ -5,6 +5,7 @@ vim.g.transparent_enabled = 1
 
 require('options') -- in /lua/options.lua
 require('keymaps') -- in /lua/keymaps.lua
+require('thesaurus') -- in /lua/thesaurus.lua for Synonyms
 require('lsp')     -- in /lua/lsp.lua
 require('packagemanager')    -- in /lua/packagemanager.lua
 
