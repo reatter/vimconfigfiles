@@ -3,7 +3,6 @@
 vim.o.breakindent = true
 vim.o.clipboard = 'unnamedplus' 
 vim.o.completeopt = 'menuone,noselect'
-vim.o.cursorcolumn = true
 vim.o.cursorline = true
 vim.o.hlsearch = true
 vim.o.ignorecase = true

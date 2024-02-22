@@ -26,7 +26,12 @@ require('lazy').setup({
   'tpope/vim-repeat',
   'tpope/vim-sleuth',
   'tpope/vim-abolish',
-  'folke/which-key.nvim',
+  { 'folke/which-key.nvim',
+    opts = {
+     -- TODO
+    }
+  },
+
   'stevearc/oil.nvim',
   'xiyaowong/transparent.nvim',
   { 
