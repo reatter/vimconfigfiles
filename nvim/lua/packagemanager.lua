@@ -23,6 +23,7 @@ require('lazy').setup({
   'tpope/vim-surround',
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
+  'tpope/vim-repeat',
   'tpope/vim-sleuth',
   'tpope/vim-abolish',
   'stevearc/oil.nvim',
@@ -42,7 +43,8 @@ require('lazy').setup({
   { 'folke/which-key.nvim', 
     opts = {
       ["<leader>f"] = { name = "+file" },
-  } },
+    } 
+  },
   { 
     'lewis6991/gitsigns.nvim',
     opts = {
