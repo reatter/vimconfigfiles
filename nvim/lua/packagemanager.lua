@@ -20,16 +20,19 @@ vim.opt.rtp:prepend(lazypath)
   vim.opt.termguicolors = true
   
 require('lazy').setup({
+
   'tpope/vim-surround',
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
   'tpope/vim-repeat',
   'tpope/vim-sleuth',
   'tpope/vim-abolish',
+
   { 'folke/which-key.nvim',
     opts = {
      -- TODO
     }
+    -- TODO register [S] for Sessions, [s] for search, [g] for Spellin[g]
   },
 
   'stevearc/oil.nvim',

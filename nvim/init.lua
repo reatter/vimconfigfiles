@@ -10,6 +10,7 @@ require('lsp')     -- in /lua/lsp.lua
 require('packagemanager')    -- in /lua/packagemanager.lua
 require('abolish') -- abbreviations 
 require('autocmd') -- autocommands 
+require('usercommands') -- own commands
 
 -- -- chdir to pwd when in argument
 local group_cdpwd = vim.api.nvim_create_augroup("group_cdpwd", { clear = true })

@@ -17,10 +17,18 @@ vim.keymap.set({ "v" }, "<A-j>", ":m '>+1<CR>gv=gv", { desc = "move selection do
 vim.keymap.set({ "v" }, "<A-k>", ":m '<-2<CR>gv=gv", { desc = "move selection up" },  { silent = true, })
 
 -- spell checking
-vim.keymap.set({ "n" }, "<leader>s", "]s", {desc = "Nächster Rechtschreibfehler"}, { silent = true, })
-vim.keymap.set({ "n" }, "<leader>S", "[s", {desc = "Letzter Rechtschreibfehler"}, { silent = true, })
-vim.keymap.set({ "n" }, "<leader>g", "z=1<CR>`", {desc = "Korrigieren"}, { silent = true, })
+vim.keymap.set({ "n" }, "gs", "]s", {desc = "Nächster Rechtschreibfehler"}, { silent = true, })
+vim.keymap.set({ "n" }, "gS", "[s", {desc = "Letzter Rechtschreibfehler"}, { silent = true, })
+vim.keymap.set({ "n" }, "<leader>g", "z=1<CR>`", {desc = "Spellin[g] …"}, { silent = true, })
 vim.keymap.set({ "i" }, "<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u", { desc = "Autokorrektur beim Schreiben" }, { silent = true, })
+
+-- session handling
+vim.keymap.set({ "n" }, "<leader>S", "", { desc = "Sessions …" }, { silent = true, })
+-- vim.keymap.set({ "n" }, "<leader>S?", "<cmd>Telescope ~/vim/sessions/Session.vim", { desc = "Speichere aktuelle Session" }, { silent = true, })
+vim.keymap.set({ "n" }, "<leader>S!", "<cmd>mks! ~/vim/sessions/Session.vim", { desc = "Speichere aktuelle Session" }, { silent = true, })
+vim.keymap.set({ "n" }, "<leader>S.", "<cmd>mks! ~/vim/sessions/", { desc = "Speichere aktuelle Session unter …" }, { silent = true, })
+vim.keymap.set({ "n" }, "<leader>L", "<cmd>source ~/Session.vim<CR>", { desc = "Lade letzte Session" }, { silent = true, })
+
 
 -- Diagnostic keymap, 
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" }, { silent = true, })
@@ -31,11 +39,8 @@ vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagn
 
 -- set VIMCONFIG to %USER%/AppData/Local/ in Window, 
 -- set VIMCONFIG to $HOME/.config/nvim in Linux
-vim.keymap.set({ "n" }, "<leader>A", ":tab drop $VIMCONFIG/lua/abolish.lua<CR>", { desc = "abolish.lua - Abkürzungen" }, { silent = true, })
-vim.keymap.set({ "n" }, "<leader>I", ":tab drop $VIMCONFIG/init.lua<CR>", { desc = "init.lua - Allgemeine Kofiguration" }, { silent = true, })
-vim.keymap.set({ "n" }, "<leader>K", ":tab drop $VIMCONFIG/lua/keymaps.lua<CR>", { desc = "keymaps.lua - Tastenkürzel" }, { silent = true, })
-vim.keymap.set({ "n" }, "<leader>O", ":tab drop $VIMCONFIG/lua/options.lua<CR>", { desc = "options.lua - VIM Optionen" }, { silent = true, })
-vim.keymap.set({ "n" }, "<leader>P", ":tab drop $VIMCONFIG/lua/packagemanager.lua<CR>", { desc = "packagemanager.lua - Lazy Plugin manager" }, { silent = true, })
+vim.keymap.set({ "n" }, "<leader>C", "<cmd>lua require('telescope.builtin').find_files({cwd='C:/Users/lannert/appdata/local/nvim'})<CR>",
+{ desc = "[C]onfigfiles in Telescope …" }, { silent = true, })
 
 -- TODO window management and resizing on n <C-hjkl> and arrows for resize
 
