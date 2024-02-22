@@ -25,9 +25,9 @@ vim.keymap.set({ "i" }, "<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u", { desc = "Autokorr
 -- session handling
 vim.keymap.set({ "n" }, "<leader>S", "", { desc = "Sessions …" }, { silent = true, })
 -- vim.keymap.set({ "n" }, "<leader>S?", "<cmd>Telescope ~/vim/sessions/Session.vim", { desc = "Speichere aktuelle Session" }, { silent = true, })
-vim.keymap.set({ "n" }, "<leader>S!", "<cmd>mks! ~/vim/sessions/Session.vim", { desc = "Speichere aktuelle Session" }, { silent = true, })
-vim.keymap.set({ "n" }, "<leader>S.", "<cmd>mks! ~/vim/sessions/", { desc = "Speichere aktuelle Session unter …" }, { silent = true, })
-vim.keymap.set({ "n" }, "<leader>L", "<cmd>source ~/Session.vim<CR>", { desc = "Lade letzte Session" }, { silent = true, })
+vim.keymap.set({ "n" }, "<leader>S!", "<cmd>mks! ~/.vim/.sessions/Session.vim<CR>", { desc = "Speichere aktuelle Session" }, { silent = true, })
+vim.keymap.set({ "n" }, "<leader>S.", ":mks! ~/.vim/.sessions/", { desc = "Speichere aktuelle Session unter …" }, { silent = true, })
+vim.keymap.set({ "n" }, "<leader>L!", "<cmd>source ~/.vim/.sessions/Session.vim<CR>", { desc = "Lade Session" }, { silent = true, })
 
 
 -- Diagnostic keymap, 
