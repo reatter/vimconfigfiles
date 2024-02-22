@@ -1,3 +1,6 @@
+-- WhichKey
+vim.keymap.set({ "n" }, "<F2>",  "<cmd>WhichKey<CR>", { desc = "WhichKey" }, { silent = true })
+
 -- convienience
 vim.keymap.set({"i", "v" }, "kj",  "<Esc>`.", { desc = "Escape" }, { silent = true })
 vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
@@ -17,7 +20,7 @@ vim.keymap.set({ "v" }, "<A-j>", ":m '>+1<CR>gv=gv", { silent = true })
 vim.keymap.set({ "v" }, "<A-k>", ":m '<-2<CR>gv=gv", { silent = true })
 
 -- spell checking
-vim.keymap.set({ "n" }, "<leader>R", ":setlocal spell!<CR>", {desc = "Rechtschreibung togglen"})
+-- TODO auto-toggle spell on entering and leaving .txt files
 vim.keymap.set({ "n" }, "<leader>s", "]s", {desc = "Nächster Rechtschreibfehler"})
 vim.keymap.set({ "n" }, "<leader>S", "[s", {desc = "Letzter Rechtschreibfehler"})
 vim.keymap.set({ "n" }, "<leader>g", "z=1<CR>`", {desc = "Korrigieren"})
@@ -38,6 +41,6 @@ vim.keymap.set({ "n" }, "<leader>K", ":tabedit $VIMCONFIG/lua/keymaps.lua<CR>", 
 vim.keymap.set({ "n" }, "<leader>O", ":tabedit $VIMCONFIG/lua/options.lua<CR>", { desc = "edit options.lua - Optionen" })
 vim.keymap.set({ "n" }, "<leader>P", ":tabedit $VIMCONFIG/lua/packagemanager.lua<CR>", { desc = "edit packagemanager.lua - Plugins" })
 
--- TODO window management and tab management and resizing on n <C-hjkl> and arrows for resize
+-- TODO window management and resizing on n <C-hjkl> and arrows for resize
 
 

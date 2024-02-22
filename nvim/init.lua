@@ -3,9 +3,6 @@ vim.g.maplocalleader = ' '
 vim.g.mapleader = ' ' 
 vim.g.transparent_enabled = 1 
 
--- set env $VIMCONFIG=path/to/config/for/nvim so that keymaps for config files work
-vim.cmd("let $VIMCONFIG = '~/.config/nvim' ") -- should work on Windows also
-
 require('options') -- in /lua/options.lua
 require('keymaps') -- in /lua/keymaps.lua
 require('thesaurus') -- in /lua/thesaurus.lua for Synonyms
@@ -39,7 +36,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- [[ Configure Telescope ]]
 require('telescope').setup {
   defaults = {
-    initial_mode = "normal",
+    initial_mode = "insert",
     preview = {
       filesize_limit = 0.1, --MBs
       timeout = 1000, --ms

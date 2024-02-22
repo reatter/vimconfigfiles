@@ -26,6 +26,7 @@ require('lazy').setup({
   'tpope/vim-repeat',
   'tpope/vim-sleuth',
   'tpope/vim-abolish',
+  'folke/which-key.nvim',
   'stevearc/oil.nvim',
   'xiyaowong/transparent.nvim',
   { 
@@ -36,15 +37,14 @@ require('lazy').setup({
       'folke/neodev.nvim',
     },
   },
+
   { 
+    -- TODO cmp sources to add
     'hrsh7th/nvim-cmp',
     dependencies = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
   },
-  { 'folke/which-key.nvim', 
-    opts = {
-      ["<leader>f"] = { name = "+file" },
-    } 
-  },
+
+
   { 
     'lewis6991/gitsigns.nvim',
     opts = {
