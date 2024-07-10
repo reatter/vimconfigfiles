@@ -1,43 +1,66 @@
 "" Source your .vimrc
-source ~/.vimrc
+" source ~/.vimrc
 
 " clipboard functionality
-set clipboard+=ideaput
+set clipboard+=unnamed
 set surround
 set which-key
 set ideajoin
 set timeoutlen=5000
+" set scrolloff=999
+nmap j gjzz
+nmap k gkzz
+
+nmap gj j
+nmap gk k
 
 let mapleader ="\<Space>"
 
 " edit ideavimrc
-nnoremap <leader>v :e $HOME/.vimrc<CR>
-nnoremap <leader>V :e $HOME/.ideavimrc<CR>
+nnoremap <leader>V :e H:/.ideavimrc<CR>
+let WhichKeyDesc_Vimrc "<leader>V edit idea-[V]imrc"
 
 nnoremap <leader>o o<Esc>
+let WhichKeyDesc_o = "<leader>o"
 nnoremap <leader>O O<Esc>
+let WhichKeyDesc_O = "<leader>O"
 
 " go into declaration
 nmap gd :action GotoDeclaration<CR>
+let WhichKeyDesc_GoTo = "<leader>g [g]o to …"
+let WhichKeyDesc_GotoDeclaration = "<leader>gd [g]o to [d]declaration"
 
 " go to test
 nmap <leader>gt :action GotoTest<CR>
 
+"navigation
+let WhichKeyDesc_Find = "<leader>f [f]ind … "
+nmap <leader>ff <action>(GotoFile)
+let WhichKeyDesc_FindFile = "<leader>f [f]ind [f]ile …"
+
+nmap <leader>q <action>(CloseContent)
+let WhichKeyDesc_Quit = "<leader>q [q]uit editor "
+
+"autocompletion
+nmap <leader><leader> <action>(ShowIntentionActions)
+let WhichKeyDesc_ShowIntentionActions = "<leader><leader> show intention actions"
+
 " go to errors
 nnoremap ge :action GotoNextError<CR>
+let WhichKeyDesc_nextError = "<leader>ge [g]o to next [e]rror"
 nnoremap gE :action GotoPreviousError<CR>
-
-" navigation
-nmap <leader>b :action Back<CR>
-nmap <leader>f :action Forward<CR>
+let WhichKeyDesc_prevError = "<leader>ge [g]o to previous [E]rror"
 
 " highlighting off
 nmap <leader>h :silent noh<CR>
+let WhichKeyDesc_toggleHighlights = "<leader>h toggle [h]ighlights"
 " ignore case during search
 set ignorecase
 
 " ZenMode
 nmap <leader>zz :action ToggleZenMode<CR>
+let WhichKeyDesc_Zen = "<leader>z "
+let WhichKeyDesc_Zen = "<leader>zz Zen-Mode toggle"
 
 "" -- Suggested options --
 
@@ -50,17 +73,17 @@ nnoremap H :action PreviousTab<CR>
 nnoremap L :action NextTab<CR>
 
 " -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+nmap <leader>B <action>(ToggleLineBreakpoint)
+let WhichKeyDesc_Breakpoint = "<leader>B toggle [B]reakpoint"
 
 "" Map <leader>d to start debug
 map <leader>D <Action>(Debug)
-
-"" Map \B to toggle the breakpoint on the current line
-map <leader>B <Action>(ToggleLineBreakpoint)
+let WhichKeyDesc_Debug = "<leader>D [D]ebug …"
 
 "" Map \F to recent files
 map <leader>F <Action>(RecentFiles)
+let WhichKeyDesc_RecentFiles = "<leader>F open recent [F]iles"
 
 "" Map \r to rename
 map <leader>r <Action>(RenameElement)
-
-" Find more examples here: https://jb.gg/share-ideavimrc
+let WhichKeyDesc_Rename = "<leader>r [r]ename symbol"
