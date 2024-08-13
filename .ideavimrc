@@ -7,9 +7,21 @@ set surround
 set which-key
 set ideajoin
 set timeoutlen=5000
-" set scrolloff=999
+set commentary
+
+" ignore case during search
+set ignorecase
+set incsearch
+set hlsearch
+
 nmap j gjzz
 nmap k gkzz
+nmap + +zz
+nmap - -zz
+nmap n nzz
+nmap N Nzz
+nmap * *zz
+nmap # #zz
 
 nmap gj j
 nmap gk k
@@ -17,18 +29,18 @@ nmap gk k
 let mapleader ="\<Space>"
 
 " edit ideavimrc
-nnoremap <leader>V :e H:/.ideavimrc<CR>
+nnoremap <leader>V :e H:/users/u7479/.ideavimrc<CR>
 let WhichKeyDesc_Vimrc "<leader>V edit idea-[V]imrc"
-
-nnoremap <leader>o o<Esc>
-let WhichKeyDesc_o = "<leader>o"
-nnoremap <leader>O O<Esc>
-let WhichKeyDesc_O = "<leader>O"
 
 " go into declaration
 nmap gd :action GotoDeclaration<CR>
 let WhichKeyDesc_GoTo = "<leader>g [g]o to …"
 let WhichKeyDesc_GotoDeclaration = "<leader>gd [g]o to [d]declaration"
+
+" go to implementation
+nmap gd <action>(GotoImplementation)
+let WhichKeyDesc_GoTo = "<leader>g [g]o to …"
+let WhichKeyDesc_GotoImplementation = "<leader>gd [g]o to [i]implementation"
 
 " go to test
 nmap <leader>gt :action GotoTest<CR>
@@ -37,9 +49,6 @@ nmap <leader>gt :action GotoTest<CR>
 let WhichKeyDesc_Find = "<leader>f [f]ind … "
 nmap <leader>ff <action>(GotoFile)
 let WhichKeyDesc_FindFile = "<leader>f [f]ind [f]ile …"
-
-nmap <leader>q <action>(CloseContent)
-let WhichKeyDesc_Quit = "<leader>q [q]uit editor "
 
 "autocompletion
 nmap <leader><leader> <action>(ShowIntentionActions)
@@ -54,13 +63,6 @@ let WhichKeyDesc_prevError = "<leader>ge [g]o to previous [E]rror"
 " highlighting off
 nmap <leader>h :silent noh<CR>
 let WhichKeyDesc_toggleHighlights = "<leader>h toggle [h]ighlights"
-" ignore case during search
-set ignorecase
-
-" ZenMode
-nmap <leader>zz :action ToggleZenMode<CR>
-let WhichKeyDesc_Zen = "<leader>z "
-let WhichKeyDesc_Zen = "<leader>zz Zen-Mode toggle"
 
 "" -- Suggested options --
 
