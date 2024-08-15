@@ -13,18 +13,20 @@ set commentary
 set ignorecase
 set incsearch
 set hlsearch
+set gdefault " no global flag for substitutes more necessary
 
-nmap j gjzz
-nmap k gkzz
-nmap + +zz
-nmap - -zz
-nmap n nzz
-nmap N Nzz
-nmap * *zz
-nmap # #zz
-
-nmap gj j
-nmap gk k
+nnoremap j gjzz
+nnoremap k gkzz
+nnoremap + +zz
+nnoremap - -zz
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap * *zz
+nnoremap # #zz
+nnoremap g* g*zz
+nnoremap g# g#zz
+nnoremap gj j
+nnoremap gk k
 
 let mapleader ="\<Space>"
 
@@ -39,8 +41,7 @@ let WhichKeyDesc_GotoDeclaration = "<leader>gd [g]o to [d]declaration"
 
 " go to implementation
 nmap gd <action>(GotoImplementation)
-let WhichKeyDesc_GoTo = "<leader>g [g]o to …"
-let WhichKeyDesc_GotoImplementation = "<leader>gd [g]o to [i]implementation"
+let WhichKeyDesc_GotoImplementation = "<leader>gi [g]o to [i]implementation"
 
 " go to test
 nmap <leader>gt :action GotoTest<CR>
@@ -61,14 +62,15 @@ nnoremap gE :action GotoPreviousError<CR>
 let WhichKeyDesc_prevError = "<leader>ge [g]o to previous [E]rror"
 
 " highlighting off
-nmap <leader>h :silent noh<CR>
+nmap <C-l> :noh<CR>
+
 let WhichKeyDesc_toggleHighlights = "<leader>h toggle [h]ighlights"
 
 "" -- Suggested options --
 
 " Don't use Ex mode, use Q for formatting.
 map Q gggqG``
-
+let WhichKeyDesc_Breakpoint = "Q format Buffer"
 
 " buffer navigation
 nnoremap H :action PreviousTab<CR>
