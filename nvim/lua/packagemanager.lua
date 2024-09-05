@@ -20,21 +20,12 @@ vim.opt.rtp:prepend(lazypath)
   vim.opt.termguicolors = true
   
 require('lazy').setup({
-
   'tpope/vim-surround',
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
   'tpope/vim-repeat',
   'tpope/vim-sleuth',
   'tpope/vim-abolish',
-
-  { 'folke/which-key.nvim',
-    opts = {
-     -- TODO
-    }
-    -- TODO register [S] for Sessions, [s] for search, [g] for Spellin[g]
-  },
-
   'stevearc/oil.nvim',
   'xiyaowong/transparent.nvim',
   { 
@@ -46,13 +37,28 @@ require('lazy').setup({
     },
   },
 
+
+
+  {
+   'glepnir/nerdicons.nvim',
+   cmd = 'NerdIcons',
+   config = function() 
+     require('nerdicons').setup({}) 
+   end
+  },
+
+  {
+    'ron89/thesaurus_query.vim'
+  },
+
   { 
-    -- TODO cmp sources to add
     'hrsh7th/nvim-cmp',
     dependencies = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
   },
-
-
+  { 'folke/which-key.nvim', 
+    opts = {
+      ["<leader>f"] = { name = "+file" },
+  } },
   { 
     'lewis6991/gitsigns.nvim',
     opts = {
@@ -65,18 +71,25 @@ require('lazy').setup({
       },
     },
   },
-  { 
-    'navarasu/onedark.nvim',
-    config = function()
-      vim.cmd.colorscheme 'onedark'
-    end,
-  },
-  {
-    "folke/tokyonight.nvim",
-    lazy = false,
-    priority = 1001,
-    opts = {},
-  },
+
+  -- colorschemes
+  -- { 
+  --   'navarasu/onedark.nvim',
+  --   config = function()
+  --     vim.cmd.colorscheme 'onedark'
+  --   end,
+  -- },
+  -- {
+  --   "folke/tokyonight.nvim",
+  --   lazy = false,
+  --   priority = 1001,
+  --   opts = {},
+  -- },
+  -- { "ellisonleao/gruvbox.nvim",
+  --   priority = 1000 ,
+  --   config = true,
+  --   opts = {},
+  -- },
   { 
     'nvim-lualine/lualine.nvim',
     opts = {
