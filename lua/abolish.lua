@@ -11,3 +11,6 @@ vim.cmd("cnoreabbrev wQ wq")
 vim.cmd("cnoreabbrev WQ wq")
 vim.cmd("cnoreabbrev Q! q!")
 
+vim.cmd("inoreabbrev << «") 
+vim.cmd("inoreabbrev >> »") 
+

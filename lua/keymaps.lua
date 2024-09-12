@@ -50,6 +50,7 @@ vim.keymap.set({ "n" }, "<leader>K", ":tabedit $VIMCONFIG/lua/keymaps.lua<CR>", 
 vim.keymap.set({ "n" }, "<leader>O", ":tabedit $VIMCONFIG/lua/options.lua<CR>", { desc = "edit options.lua - Optionen" })
 vim.keymap.set({ "n" }, "<leader>P", ":tabedit $VIMCONFIG/lua/packagemanager.lua<CR>", { desc = "edit packagemanager.lua - Plugins" })
 
+-- better digraphs
+vim.keymap.set( "i", "<C-k><C-k>", "<Cmd>lua require'better-digraphs'.digraphs('insert')<CR>", { desc = "better digraphs" })
+
 -- TODO window management and tab management and resizing on n <C-hjkl> and arrows for resize
-
-
