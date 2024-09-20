@@ -14,8 +14,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 
 vim.opt.rtp:prepend(lazypath)
--- disable netrw at the very start of your init.lua (strongly advised)
-vim.g.loaded_netrw = 1
+-- disable netrw at the very start of your init.lua (strongly advised) vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 
@@ -97,11 +96,15 @@ require('lazy').setup({
 },
 -- "gc" to comment visual regions/lines
 { 'numToStr/Comment.nvim', opts = {} },
-{ 'nvim-telescope/telescope.nvim', version = '*', dependencies = { 'nvim-lua/plenary.nvim' } },
+-- 
 -- Fuzzy Finder Algorithm which requires local dependencies to be built.
 -- Only load if `make` is available. Make sure you have the system
 -- requirements installed.
 {
+  { 'nvim-telescope/telescope.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+  },
+
   'nvim-telescope/telescope-fzf-native.nvim',
   {
     'nvim-telescope/telescope-fzf-native.nvim',

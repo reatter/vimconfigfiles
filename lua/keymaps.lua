@@ -1,7 +1,7 @@
 -- convienience
 vim.keymap.set({"i", "v" }, "kj",  "<Esc>", { desc = "Escape" }, { silent = true })
 vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
-vim.keymap.set({ "n", "v" }, "<leader>h",  ":set hls!<CR>", { desc = "no highlights" }, { silent = true })
+vim.keymap.set({ "n", "v" }, "<leader>h",  "<cmd>set hls!<CR>", { desc = "no highlights" }, { silent = true })
 vim.keymap.set({ "n" }, "y%",  "ggyG", { desc = "yank current file" }, { silent = true })
 vim.keymap.set({ "n" }, "<leader>Q.",  "<cmd>quit!<CR>", { desc = "(Q.)uit and discard current changes" }, { silent = true })
 vim.keymap.set({ "n" }, "<leader>W.",  "<cmd>write!<CR>", { desc = "(W.)rite current changes" }, { silent = true })
@@ -29,9 +29,8 @@ vim.keymap.set({ "v" }, "<A-j>", ":m '>+1<CR>gv=gv", { silent = true })
 vim.keymap.set({ "v" }, "<A-k>", ":m '<-2<CR>gv=gv", { silent = true })
 
 -- spell checking
-vim.keymap.set({ "n" }, "<leader>R", ":setlocal spell!<CR>", {desc = "Rechtschreibung togglen"})
+vim.keymap.set({ "n" }, "<leader>R", "<cmd>setlocal spell!<CR>", {desc = "Rechtschreibung togglen"})
 vim.keymap.set({ "n" }, "<C-s>", "]s", {desc = "Nächster Rechtschreibfehler"})
-vim.keymap.set({ "n" }, "<C-S>", "[s", {desc = "Letzter Rechtschreibfehler"})
 vim.keymap.set({ "n" }, "<leader>g", "z=1<CR>`", {desc = "Korrigieren"})
 vim.keymap.set({ "i" }, "<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u", { desc = "Autokorrektur beim Schreiben" })
 
@@ -44,11 +43,11 @@ vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagn
 
 -- set VIMCONFIG to %USER%/AppData/Local/ in Windows
 -- set VIMCONFIG to $HOME/.config/nvim in Linux
-vim.keymap.set({ "n" }, "<leader>A", ":tabedit $VIMCONFIG/lua/abolish.lua<CR>", { desc = "edit abolish.lua - Abkürzungen" })
-vim.keymap.set({ "n" }, "<leader>I", ":tabedit $VIMCONFIG/init.lua<CR>", { desc = "edit init.lua" })
-vim.keymap.set({ "n" }, "<leader>K", ":tabedit $VIMCONFIG/lua/keymaps.lua<CR>", { desc = "edit keymaps.lua - Tastenkürzel" })
-vim.keymap.set({ "n" }, "<leader>O", ":tabedit $VIMCONFIG/lua/options.lua<CR>", { desc = "edit options.lua - Optionen" })
-vim.keymap.set({ "n" }, "<leader>P", ":tabedit $VIMCONFIG/lua/packagemanager.lua<CR>", { desc = "edit packagemanager.lua - Plugins" })
+vim.keymap.set({ "n" }, "<leader>A", "<cmd>tabedit $VIMCONFIG/lua/abolish.lua<CR>", { desc = "edit abolish.lua - Abkürzungen" })
+vim.keymap.set({ "n" }, "<leader>I", "<cmd>tabedit $VIMCONFIG/init.lua<CR>", { desc = "edit init.lua" })
+vim.keymap.set({ "n" }, "<leader>K", "<cmd>tabedit $VIMCONFIG/lua/keymaps.lua<CR>", { desc = "edit keymaps.lua - Tastenkürzel" })
+vim.keymap.set({ "n" }, "<leader>O", "<cmd>tabedit $VIMCONFIG/lua/options.lua<CR>", { desc = "edit options.lua - Optionen" })
+vim.keymap.set({ "n" }, "<leader>P", "<cmd>tabedit $VIMCONFIG/lua/packagemanager.lua<CR>", { desc = "edit packagemanager.lua - Plugins" })
 
 -- better digraphs
 vim.keymap.set( "i", "<C-k><C-k>", "<Cmd>lua require'better-digraphs'.digraphs('insert')<CR>", { desc = "better digraphs" })

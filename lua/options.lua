@@ -1,3 +1,4 @@
+vim.cmd[[colorscheme retrobox]]
 -- options
 --
 vim.o.gdefault = true -- always global substitute
@@ -24,6 +25,7 @@ vim.wo.number = true
 vim.wo.signcolumn = 'yes'
 vim.o.splitbelow = true
 vim.o.splitright = true
+vim.o.spelllang = 'de,en'
 -- Virtual editing means that the cursor can be positioned where there is	no actual character.  
 -- This can be halfway into a tab or beyond the end	of the line.  Useful for selecting a 
 -- rectangle in Visual mode and	editing a table.
