@@ -6,11 +6,15 @@ vim.g.transparent_enabled = 1
 -- set env $VIMCONFIG=path/to/config/for/nvim so that keymaps for config files work
 vim.cmd("let $VIMCONFIG = '~/.var/app/io.neovim.nvim/config/nvim' ") -- should work on Windows also
 
+-- working without PackageManager
 require('options') -- in /lua/options.lua
 require('keymaps') -- in /lua/keymaps.lua
-require('lsp')     -- in /lua/lsp.lua
 require('thesaurus') -- in /lua/thesaurus.lua
+
+-- Plugins that require PackageManager
 require('packagemanager')    -- in /lua/packagemanager.lua
+require('lsp')     -- in /lua/lsp.lua
+require('telescopeconfig') -- in /lua/telescopeconfig.lua
 require('abolish') -- abbreviations 
 
 -- appends thesaurus for different languages
@@ -39,50 +43,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 --
--- [[ Configure Telescope ]]
-require('telescope').setup {
-  defaults = {
-    initial_mode = "normal",
-    preview = {
-      filesize_limit = 0.1, --MBs
-      timeout = 1000, --ms
-    },
-    shorten_path = true, 
-    smart = true,
-    file_ignore_patterns = { 
-      ".m2",
-      ".cache",
-      ".docker",
-      ".vscode",
-    },
-    mappings = {
-      n = {
-        ["<C-c>"] = require('telescope.actions').close,
-      },
-      i = {
-        ['<C-u>'] = true,
-        ['<C-d>'] = true,
-      },
-    },
-  },
-}
-
-
-vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
-vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
-vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
-vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
-vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
-
-pcall(require('telescope').load_extension, 'fzf')
-vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
-vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
-vim.keymap.set('n', '<leader>/', function()
-  require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-    winblend = 10,
-    previewer = true,
-  })
-end, { desc = '[/] Fuzzily search in current buffer' })
 
 local on_attach = function(_, bufnr)
   local nmap = function(keys, func, desc)
