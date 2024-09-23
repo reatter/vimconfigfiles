@@ -18,12 +18,14 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 
+
 require('lazy').setup({
   'tpope/vim-surround',
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
   'tpope/vim-repeat',
   'tpope/vim-sleuth',
+  'registerGen/clock.nvim',
   'tpope/vim-abolish',
   'stevearc/oil.nvim',
   'xiyaowong/transparent.nvim',
@@ -36,8 +38,6 @@ require('lazy').setup({
     },
   },
 
-
-
   {
     'glepnir/nerdicons.nvim',
     cmd = 'NerdIcons',
@@ -45,16 +45,21 @@ require('lazy').setup({
       require('nerdicons').setup({}) 
     end
   },
+
   { 'ron89/thesaurus_query.vim' },
+
   { 'protex/better-digraphs.nvim' },
+
   { 
     'hrsh7th/nvim-cmp',
     dependencies = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
   },
+
   { 'folke/which-key.nvim', 
   opts = {
     ["<leader>f"] = { name = "+file" },
   } },
+
   { 
     'lewis6991/gitsigns.nvim',
     opts = {
@@ -72,39 +77,43 @@ require('lazy').setup({
   { 
     'navarasu/onedark.nvim',
   },
+
   {
     "folke/tokyonight.nvim",
     lazy = false,
     priority = 1001,
     opts = {},
   },
+
   { "ellisonleao/gruvbox.nvim",
   priority = 1002 ,
   config = true,
   opts = {},
-},
-{ 
-  'nvim-lualine/lualine.nvim',
-  opts = {
-    options = {
-      icons_enabled = false,
-      theme = 'retrobox',
-      component_separators = '☻',
-      section_separators = '♡',
-    },
-  },
-},
--- "gc" to comment visual regions/lines
-{ 'numToStr/Comment.nvim', opts = {} },
--- 
--- Fuzzy Finder Algorithm which requires local dependencies to be built.
--- Only load if `make` is available. Make sure you have the system
--- requirements installed.
-{
-  { 'nvim-telescope/telescope.nvim',
-    dependencies = { 'nvim-lua/plenary.nvim' },
   },
 
+  { 
+    'nvim-lualine/lualine.nvim',
+    opts = {
+      options = {
+        icons_enabled = false,
+        theme = 'auto',
+        component_separators = '☻',
+        section_separators = '♡',
+      },
+    },
+  },
+
+  -- "gc" to comment visual regions/lines
+  { 'numToStr/Comment.nvim', opts = {} },
+  -- 
+  -- Fuzzy Finder Algorithm which requires local dependencies to be built.
+  -- Only load if `make` is available. Make sure you have the system
+  -- requirements installed.
+  {
+    { 'nvim-telescope/telescope.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+  },
+  
   'nvim-telescope/telescope-fzf-native.nvim',
   {
     'nvim-telescope/telescope-fzf-native.nvim',
@@ -113,6 +122,7 @@ require('lazy').setup({
       return vim.fn.executable 'make' == 1
     end,
   },
+  
   {
     "nvim-tree/nvim-tree.lua",
     version = "*",
@@ -123,6 +133,7 @@ require('lazy').setup({
       require("nvim-tree").setup {}
     end,
   },
+  
   { 
     'nvim-treesitter/nvim-treesitter',
     dependencies = {
@@ -131,3 +142,5 @@ require('lazy').setup({
     build = ":TSUpdate",
   },
 }})
+
+require('clock').setup()

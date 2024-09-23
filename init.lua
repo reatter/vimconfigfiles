@@ -17,6 +17,7 @@ require('lsp')     -- in /lua/lsp.lua
 require('telescopeconfig') -- in /lua/telescopeconfig.lua
 require('abolish') -- abbreviations 
 
+
 -- appends thesaurus for different languages
 vim.opt.tsr:append { '$VIMCONFIG/tsr.txt', '$VIMCONFIG/tsr_en.txt' } 
 

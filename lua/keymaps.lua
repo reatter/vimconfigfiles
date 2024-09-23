@@ -12,7 +12,7 @@ vim.keymap.set({ "n" }, "<leader>Xa",  "<cmd>wqall!<CR>", { desc = "(Xa) Exit al
 vim.keymap.set({ "n" }, "H",  "gT", { desc = "(H) previous Tab" }, { silent = true })
 vim.keymap.set({ "n" }, "L",  "gt", { desc = "(L) next Tab" }, { silent = true })
 
--- centering after movements with zz
+-- centering after movements with z
 vim.keymap.set({ "n" }, "j",  "gjzz", { desc = "" }, { silent = true })
 vim.keymap.set({ "n" }, "k",  "gkzz", { desc = "" }, { silent = true })
 vim.keymap.set({ "n" }, "*",  "*zz", { desc = "" }, { silent = true })
@@ -33,8 +33,8 @@ vim.keymap.set({ "n" }, "<leader>R", "<cmd>setlocal spell!<CR>", {desc = "Rechts
 vim.keymap.set({ "n" }, "<C-s>", "]s", {desc = "Nächster Rechtschreibfehler"})
 vim.keymap.set({ "n" }, "<leader>g", "z=1<CR>`", {desc = "Korrigieren"})
 vim.keymap.set({ "i" }, "<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u", { desc = "Autokorrektur beim Schreiben" })
-
--- Diagnostic keymaps
+ 
+-- Diagnostic key maps 
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
@@ -51,5 +51,8 @@ vim.keymap.set({ "n" }, "<leader>P", "<cmd>tabedit $VIMCONFIG/lua/packagemanager
 
 -- better digraphs
 vim.keymap.set( "i", "<C-k><C-k>", "<Cmd>lua require'better-digraphs'.digraphs('insert')<CR>", { desc = "better digraphs" })
+
+-- gadgets
+vim.keymap.set( "n", "ö", "<cmd>ClockToggle<CR>", { desc = "toggle Clock" })
 
 -- TODO window management and tab management and resizing on n <C-hjkl> and arrows for resize
