@@ -3,7 +3,7 @@ vim.cmd[[colorscheme retrobox]]
 --
 vim.o.gdefault = true -- always global substitute
 vim.o.breakindent = true
-vim.o.clipboard = 'unnamedplus' 
+vim.o.clipboard = 'unnamedplus,unnamed' 
 vim.o.completeopt = 'menuone,noselect'
 vim.o.hlsearch = true
 vim.o.ignorecase = true

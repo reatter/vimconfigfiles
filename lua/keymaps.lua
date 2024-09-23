@@ -1,4 +1,5 @@
 -- convienience
+
 vim.keymap.set({"i", "v" }, "kj",  "<Esc>", { desc = "Escape" }, { silent = true })
 vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 vim.keymap.set({ "n", "v" }, "<leader>h",  "<cmd>set hls!<CR>", { desc = "no highlights" }, { silent = true })
@@ -12,7 +13,6 @@ vim.keymap.set({ "n" }, "<leader>Xa",  "<cmd>wqall!<CR>", { desc = "(Xa) Exit al
 vim.keymap.set({ "n" }, "H",  "gT", { desc = "(H) previous Tab" }, { silent = true })
 vim.keymap.set({ "n" }, "L",  "gt", { desc = "(L) next Tab" }, { silent = true })
 
--- centering after movements with z
 vim.keymap.set({ "n" }, "j",  "gjzz", { desc = "" }, { silent = true })
 vim.keymap.set({ "n" }, "k",  "gkzz", { desc = "" }, { silent = true })
 vim.keymap.set({ "n" }, "*",  "*zz", { desc = "" }, { silent = true })
@@ -31,7 +31,7 @@ vim.keymap.set({ "v" }, "<A-k>", ":m '<-2<CR>gv=gv", { silent = true })
 -- spell checking
 vim.keymap.set({ "n" }, "<leader>R", "<cmd>setlocal spell!<CR>", {desc = "Rechtschreibung togglen"})
 vim.keymap.set({ "n" }, "<C-s>", "]s", {desc = "Nächster Rechtschreibfehler"})
-vim.keymap.set({ "n" }, "<leader>g", "z=1<CR>`", {desc = "Korrigieren"})
+vim.keymap.set({ "n" }, "<leader>g", "<cmd>Git<CR>", {desc = "Git"})
 vim.keymap.set({ "i" }, "<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u", { desc = "Autokorrektur beim Schreiben" })
  
 -- Diagnostic key maps 
